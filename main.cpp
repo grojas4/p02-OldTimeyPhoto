@@ -11,7 +11,28 @@ using namespace std;
 int main()
 {
   // Ask user for an image name
+  Bitmap image;
+  Pixel rgb;
+  vector <vector <Pixel> > bmp;
+  string filename;  
+  cout << "Enter machupicchu.bmp to see something cool!!!" << endl;
 
+  cin >> filename;
+  image.open(filename);
+  bmp = image.toPixelMatrix();
+
+  cout << "machupicchu.bmp has been loaded. It is " << bmp.size() << "pixels wide and " << bmp[0].size() << "pixels high. " << endl;
+
+/*  for(int i=0; i<bmp.size(); i++)
+  {
+    for(int j=0; j<bmp[0].size(); j++)
+    {
+      int r = rgb.red;
+      int g = rgb.green;
+      int b = ggb.blue;
+      int average = (r+g+b)/3;    //continue to grayscale from here 
+      */
+  
   
   //convert image pixels to grayscale (average of RGB)
   
