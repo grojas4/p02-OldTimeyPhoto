@@ -20,8 +20,15 @@ int main()
   cin >> filename;
   image.open(filename);
   bmp = image.toPixelMatrix();
+  // check if file is in .bmp format
+  
 
   cout << "machupicchu.bmp has been loaded. It is " << bmp.size() << "pixels wide and " << bmp[0].size() << "pixels high. " << endl;
+
+  bool validBmp = image.isImage();
+  while( validBmp == true)
+  {
+  //convert image pixels to grayscale (average of RGB)
 
   for(int i=0; i<bmp.size(); i++)
   {
@@ -36,21 +43,24 @@ int main()
       rgb.blue = average;
     }
   }
+  }
+  while(validBmp == false)
+  {
+    cout << "The file is not in the correct format. Please make sure its a >BMP file. " << endl;
+  }
+  //save file as oldtimey.bmp
+  
   image.fromPixelMatrix(bmp);
   image.save("OldTimeyPhoto.bmp");
 
 
   
-  //convert image pixels to grayscale (average of RGB)
   
  
-  //save file as oldtimey.bmp
   
   
-  //output image in grayscale 
 
   
-  //Make sure that the image is readable if not let the user know that the file must be 24 bit  BMP file. ask to renter the image name 
 
 
   return 0;
